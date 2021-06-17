@@ -1,37 +1,12 @@
 <?php
-trait Helper
-{
-    private $name;
-    private $age;
-    private $population;
+require_once 'Date.php';
 
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getAge()
-    {
-        return $this->age;
-    }
-    public function getPopulation()
-    {
-        return $this->population;
-    }
-}
-class Country
-{
-    use Helper;
-
-    public function __construct($name, $age,$population)
-    {
-        $this->name = $name;
-        $this->age = $age;
-        $this->population = $population;
-    }
-}
-$country = new Country ('Ужгород', 102, 135000);
-echo $country->getName();
-echo '<br/>'.$country ->getAge();
-echo '<br/>'.$country->getPopulation();
-?>
+$date = new Date('2022-3-22');
+echo $date->getDay().'<br>';
+echo $date->subDay(1).'<br>';
+echo $date->format('m-d-Y').'<br>';
+echo $date->getWeekDay('en').'<br>';
+echo $date->getMonth().'<br>';
+echo $date->getYear().'<br>';
+echo (new Date)->addDay(1).'<br>';
+echo (new Date('2025-10-31'))->addMonth(1);
